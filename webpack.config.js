@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+// const css = require('file.css')
 
 module.exports = {
   entry: {
@@ -12,7 +13,8 @@ module.exports = {
     filename: '[name].js',
   },
   module: {
-    rules: [{ 
+    rules: [
+      { 
       test: /\.(js|jsx)$/, 
       exclude: /node_modules/,
       use: {
@@ -21,7 +23,12 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
-    }],
+    }, 
+    {
+      test:/\.css$/,
+      use:['style-loader','css-loader']
+    }
+  ],
   },
   plugins: [
     new HtmlWebpackPlugin({
