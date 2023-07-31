@@ -11,8 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/translate": "^7.2.2",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "net": "^1.0.2",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "request": "^2.88.2",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
@@ -26,5 +34,11 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^4.10.0",
     "webpack-merge": "^5.9.0"
+  },
+  "browser": {
+    "fs": false,
+    "os" : false,
+    "path": false,
+    "child_process": false
   }
 }

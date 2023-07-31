@@ -1,9 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 // const css = require('file.css')
 
 module.exports = {
+  // webpack5: true,
+  //   webpack: (config) => {
+  //     config.resolve.fallback = { fs: false };
+
+  //     return config;
+  //   },
   entry: {
     popup: './src/popup.jsx',
   },
@@ -40,5 +47,15 @@ module.exports = {
         { from: "public"},
       ],
     }),
-]
+    new NodePolyfillPlugin(),
+],
+  resolve: {
+    fallback: {
+      "fs": false,
+      "os": false,
+      "path": false,
+      "child_process": false
+    }
+}
+
 };
